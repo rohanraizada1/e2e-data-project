@@ -7,7 +7,7 @@ on:
       - master
 
 env:
-  DATABRICKS_HOST: https://e2-demo-field-eng.cloud.databricks.com/
+  DATABRICKS_HOST: https://dbc-0c529907-42cd.cloud.databricks.com/
   PYTHON_VERSION: '3.9'
 
 jobs:
@@ -51,8 +51,8 @@ jobs:
           echo "Authentication will use Service Principal"
         env:
           DATABRICKS_HOST: ${{ env.DATABRICKS_HOST }}
-          DATABRICKS_CLIENT_ID: ba4a915e-04ee-4563-8e97-f03b6653b437
-          DATABRICKS_CLIENT_SECRET: dose2b7856d920e26216f6e310f589670d67
+          DATABRICKS_CLIENT_ID: 739477ea-2d31-4459-b762-c214e201de54
+          DATABRICKS_CLIENT_SECRET: dose25a8888e5d20cfdfb3295bba466d214f
           
       - name: Validate Databricks bundle
         run: |
@@ -60,8 +60,8 @@ jobs:
           databricks bundle validate --target ${{ steps.environment.outputs.target }}
         env:
           DATABRICKS_HOST: ${{ env.DATABRICKS_HOST }}
-          DATABRICKS_CLIENT_ID: ba4a915e-04ee-4563-8e97-f03b6653b437
-          DATABRICKS_CLIENT_SECRET: dose2b7856d920e26216f6e310f589670d67
+          DATABRICKS_CLIENT_ID: 739477ea-2d31-4459-b762-c214e201de54
+          DATABRICKS_CLIENT_SECRET: dose25a8888e5d20cfdfb3295bba466d214f
           
       - name: Deploy Databricks bundle
         run: |
@@ -69,8 +69,8 @@ jobs:
           databricks bundle deploy --target ${{ steps.environment.outputs.target }}
         env:
           DATABRICKS_HOST: ${{ env.DATABRICKS_HOST }}
-          DATABRICKS_CLIENT_ID: ba4a915e-04ee-4563-8e97-f03b6653b437
-          DATABRICKS_CLIENT_SECRET: dose2b7856d920e26216f6e310f589670d67
+          DATABRICKS_CLIENT_ID: 739477ea-2d31-4459-b762-c214e201de54
+          DATABRICKS_CLIENT_SECRET: dose25a8888e5d20cfdfb3295bba466d214f
           
       - name: Mark deployment as successful
         if: success()
