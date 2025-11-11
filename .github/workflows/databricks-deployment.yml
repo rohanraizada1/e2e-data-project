@@ -51,8 +51,8 @@ jobs:
           echo "Authentication will use Service Principal"
         env:
           DATABRICKS_HOST: ${{ env.DATABRICKS_HOST }}
-          DATABRICKS_CLIENT_ID: 739477ea-2d31-4459-b762-c214e201de54
-          DATABRICKS_CLIENT_SECRET: dose25a8888e5d20cfdfb3295bba466d214f
+          DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+          DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
           
       - name: Validate Databricks bundle
         run: |
@@ -60,8 +60,8 @@ jobs:
           databricks bundle validate --target ${{ steps.environment.outputs.target }}
         env:
           DATABRICKS_HOST: ${{ env.DATABRICKS_HOST }}
-          DATABRICKS_CLIENT_ID: 739477ea-2d31-4459-b762-c214e201de54
-          DATABRICKS_CLIENT_SECRET: dose25a8888e5d20cfdfb3295bba466d214f
+          DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+          DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
           
       - name: Deploy Databricks bundle
         run: |
@@ -69,8 +69,8 @@ jobs:
           databricks bundle deploy --target ${{ steps.environment.outputs.target }}
         env:
           DATABRICKS_HOST: ${{ env.DATABRICKS_HOST }}
-          DATABRICKS_CLIENT_ID: 739477ea-2d31-4459-b762-c214e201de54
-          DATABRICKS_CLIENT_SECRET: dose25a8888e5d20cfdfb3295bba466d214f
+          DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+          DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
           
       - name: Mark deployment as successful
         if: success()
