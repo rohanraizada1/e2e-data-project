@@ -46,7 +46,7 @@ jobs:
           
       - name: Configure Databricks Authentication
         run: |
-          echo "Setting up Databricks authentication now"
+          echo "Setting up Databricks authentication now in DLL"
           echo "Host: ${{ env.DATABRICKS_HOST }}"
           echo "Authentication will use Service Principal"
         env:
